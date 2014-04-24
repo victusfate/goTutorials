@@ -5,25 +5,30 @@ import (
 )
 
 type sayer interface {
-    say()
+    say(a string) string
 }
 
 type AA struct{
     name string
 }
 
-/*
-func (this *AA) say(){
-    fmt.Println("==========>AA")
+
+func (this *AA) say(a string) string {
+    out := "==========>AA " + a
+    fmt.Println(out)
+    return out
 }
-*/
+
 
 type BB struct{
     *AA
     age int
 }
-func (this *BB) say(){
-    fmt.Println("==========>BB")
+
+func (this *BB) say(a string) string {
+    out := "==========>BB " + a
+    fmt.Println(out)
+    return out
 }
 
 func ObjectFactory(typeNum int) sayer {
@@ -36,7 +41,8 @@ func ObjectFactory(typeNum int) sayer {
 
 func main() {
     obj1 := ObjectFactory(1)
-    obj1.say()
+    o1   := obj1.say("monkey")
     obj2 := ObjectFactory(0)
-    obj2.say()
+    o2   := obj2.say("business")
+    fmt.Println("outputs o1,o2",o1,o2)
 }
