@@ -51,7 +51,7 @@ func (this *Script) splitScenes(iMaxSize int) []Bounds {
 }
 
 func main() {
-    s := Script{length: 1200}
+    s := Script{length: 1407}
     theBounds := s.splitScenes(240)
     for i,aBound := range theBounds {
         fmt.Println(i,aBound)
